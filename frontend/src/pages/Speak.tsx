@@ -1,30 +1,51 @@
 import React from 'react';
 import MicButton from "../components/MicButton";
 import Mic from "../assets/mic.svg?react"
+import Stop from '../assets/stop.svg?react';
+import SpeakCard from '../components/SpeakCard';
+import SpeakForm from '../components/SpeakForm';
+import { useRecorder } from '../hooks/useRecorder';
+import PlayButton from '../components/PlayAudioButton';
 
 const Speak = () => {
+	const recorder = useRecorder();
+	
 	return (
-		<div className="flex flex-col">
-			<div className="flex flex-col h-auto w-screen pt-36 pb-12 gap-4 border-b-1 border-b-forest">
-				<h1 className="text-5xl font-bold">
+		<div className="flex flex-col w-screen">
+			<div className="flex flex-col pt-36 pb-8 gap-4 shadow-[0_10px_12px_-1px_rgba(0,0,0,0.1)]">
+				<h1 className="text-4xl font-bold">
 					Help us collect English dialects!
 				</h1>
-				<h2 className="text-xl">
+				<h2 className="text-lg">
 					Read a short sentence and record your voice to contribute to
 					our dataset
 				</h2>
 			</div>
-			<div className="flex flex-col items-center pt-12">
-				<h2 className="text-xl mb-4">
-					Click <Mic className="inline align-middle"></Mic> then read
-					the sentence aloud
-				</h2>
-				<div className="flex justify-center items-center bg-white shadow-md rounded-lg py-[5vh] px-[5vw] h-[25vh] w-[35vw]">
-					<h1 className="text-xl leading-relaxed font-light">
-						Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sapiente temporibus dicta officiis provident ducimus.
-					</h1>
+			<div>
+				<div className="flex flex-col items-center pt-10">
+					<h2 className="text-xl mb-4">
+						Click{' '}
+						{recorder.isRecording ? (
+							<Stop className="mb-0.5 inline align-middle" />
+						) : (
+							<Mic className="mb-0.5 inline align-middle"></Mic>
+						)}{' '}
+						{recorder.isRecording
+							? 'when done'
+							: 'then read the sentence aloud'}
+					</h2>
+					<SpeakCard />
+					<div className='flex items-center gap-8 mt-4'>
+						<MicButton recorder={recorder} />
+						<div className="">
+							<h3 className="text-sm underline mb-1">Review clips here!</h3>
+							<PlayButton file={recorder.audioBlob} />
+						</div>
+					</div>
 				</div>
-				<MicButton />
+				<div className="py-8">
+					<SpeakForm recorder={recorder} />
+				</div>
 			</div>
 		</div>
 	);

@@ -1,4 +1,19 @@
 import { useState, useRef } from "react";
+import { getOrCreateSessionId } from "../utils/session";
+
+const getAudioDuration = (blob: Blob): Promise<number> => {
+  return new Promise((resolve, reject) => {
+    const url = URL.createObjectURL(blob);
+    const audio = new Audio(url);
+    audio.addEventListener("loadedmetadata", () => {
+      resolve(audio.duration);
+      URL.revokeObjectURL(url);
+    });
+    audio.addEventListener("error", (e) => {
+      reject(e);
+    });
+  });
+};
 
 export const useRecorder = () => {
   const [isRecording, setIsRecording] = useState(false);
@@ -34,8 +49,16 @@ export const useRecorder = () => {
 			return;
 		}
 
+    const duration = await getAudioDuration(audioBlob);
+
 		const formData = new FormData();
-		formData.append("file", audioBlob, "recording.wav");
+		const timestamp = new Date().toISOString().replace(/[:.]/g, "-");
+		const uniqueFilename = `recording-${timestamp}.wav`;
+		formData.append("file", audioBlob, uniqueFilename);
+
+    formData.append("dialect_label", ""); // pass actual label
+	  formData.append("duration_seconds", duration.toString());
+	  formData.append("session_id", getOrCreateSessionId());
 
 		console.log("Uploading audio...");
 
@@ -57,6 +80,7 @@ export const useRecorder = () => {
     audioBlob,
     startRecording,
     stopRecording,
-	uploadAudio,
+	  uploadAudio,
+    clearAudio: () => setAudioBlob(null),
   };
 };

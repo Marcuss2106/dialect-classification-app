@@ -1,10 +1,10 @@
-from pydantic import BaseModel
-import numpy as np
-import joblib
+# from pydantic import BaseModel
+# import numpy as np
+# import joblib
 
 
-class Features(BaseModel):
-    features: list[float]
+# class Features(BaseModel):
+#     features: list[float]
 
 
 # model = joblib.load("model.pkl")

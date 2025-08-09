@@ -43,7 +43,7 @@ export const useRecorder = () => {
     setIsRecording(false);
   };
 
-	const uploadAudio = async () => {
+	const uploadAudio = async (dialect_code: string, subdialect_code: string) => {
 		if (!audioBlob) {
 			console.log("No audio blob available.");
 			return;
@@ -55,8 +55,8 @@ export const useRecorder = () => {
 		const timestamp = new Date().toISOString().replace(/[:.]/g, "-");
 		const uniqueFilename = `recording-${timestamp}.wav`;
 		formData.append("file", audioBlob, uniqueFilename);
-
-    formData.append("dialect_label", ""); // pass actual label
+    formData.append("dialect_code", dialect_code);
+    formData.append("subdialect_code", subdialect_code);
 	  formData.append("duration_seconds", duration.toString());
 	  formData.append("session_id", getOrCreateSessionId());
 

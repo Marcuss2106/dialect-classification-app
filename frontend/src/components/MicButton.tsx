@@ -1,38 +1,27 @@
 import React from 'react';
 import Mic from '../assets/mic.svg?react';
 import Stop from '../assets/stop.svg?react';
-import { useEffect, useRef } from 'react';
 
 type MicButtonProps = {
 	recorder: {
 		isRecording: boolean;
 		startRecording: () => void;
 		stopRecording: () => void;
-		audioBlob: Blob | null;
-		uploadAudio: () => void;
 	};
 };
 
 const MicButton: React.FC<MicButtonProps> = ({ recorder }) => {
-	const { isRecording, startRecording, stopRecording, audioBlob, uploadAudio } = recorder;
+	const { isRecording, startRecording, stopRecording } = recorder;
 
 	const handleClick = () => {
 		if (isRecording) {
 			stopRecording();
 			console.log('Stopped Recording');
 		} else {
-			// hasUploaded.current = false;
 			startRecording();
 			console.log('Started Recording');
 		}
 	};
-
-	// useEffect(() => {
-	// 	if (audioBlob && !hasUploaded.current) {
-	// 		hasUploaded.current = true;
-	// 		uploadAudio();
-	// 	}
-	// }, [audioBlob, uploadAudio]);
 
 	return (
 		<button

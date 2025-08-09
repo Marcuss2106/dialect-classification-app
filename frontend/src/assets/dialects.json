@@ -1,0 +1,82 @@
+{
+  "version": "1.0",
+  "dialects": [
+    {
+      "code": "genam",
+      "label": "General American English (GenAm)",
+      "subdialects": []
+    },
+    {
+      "code": "southern",
+      "label": "Southern American English",
+      "subdialects": [
+        { "code": "tx_southern", "label": "Texas Southern" },
+        { "code": "coastal_southern", "label": "Coastal Southern (Lowcountry, Gulf)" },
+        { "code": "appalachian_southern", "label": "Appalachian Southern" },
+        { "code": "ozark_southern", "label": "Ozark Southern" },
+        { "code": "inland_deep_south", "label": "Inland Deep South" }
+      ]
+    },
+    {
+      "code": "midland",
+      "label": "Midland American English",
+      "subdialects": [
+        { "code": "north_midland", "label": "North Midland (Ohio, Indiana, Pennsylvania)" },
+        { "code": "south_midland", "label": "South Midland (Kentucky, Tennessee, West Virginia)" }
+      ]
+    },
+    {
+      "code": "northern",
+      "label": "Northern American English",
+      "subdialects": [
+        { "code": "inland_north", "label": "Inland North (Great Lakes)" },
+        { "code": "north_central", "label": "North Central (Minnesota, Dakotas, Wisconsin)" },
+        { "code": "wny_buffalo", "label": "Western New York / Buffalo" }
+      ]
+    },
+    {
+      "code": "new_england",
+      "label": "New England English",
+      "subdialects": [
+        { "code": "eastern_new_england", "label": "Eastern New England (Boston, Maine)" },
+        { "code": "western_new_england", "label": "Western New England (Connecticut, Vermont, Western Massachusetts)" }
+      ]
+    },
+    {
+      "code": "nyc",
+      "label": "New York City English",
+      "subdialects": []
+    },
+    {
+      "code": "western",
+      "label": "Western American English",
+      "subdialects": [
+        { "code": "pacific_northwest", "label": "Pacific Northwest" },
+        { "code": "california", "label": "California English" },
+        { "code": "utah_intermountain", "label": "Utah / Intermountain West" }
+      ]
+    },
+    {
+      "code": "aave",
+      "label": "African American Vernacular English (AAVE)",
+      "subdialects": [
+        { "code": "southern_aave", "label": "Southern AAVE" },
+        { "code": "northern_aave", "label": "Northern AAVE" },
+        { "code": "western_aave", "label": "Western AAVE" }
+      ]
+    },
+    {
+      "code": "chicano",
+      "label": "Chicano English",
+      "subdialects": [
+        { "code": "sw_chicano", "label": "Southwest Chicano English (Texas, Arizona, New Mexico)" },
+        { "code": "california_chicano", "label": "California Chicano English" }
+      ]
+    },
+    {
+      "code": "native_american",
+      "label": "Native American English varieties",
+      "subdialects": []
+    }
+  ]
+}

@@ -16,7 +16,7 @@ const AgreementCheckbox: React.FC<AgreementCheckboxProps> = ({
 				id="agreement"
 				checked={isChecked}
 				onChange={(e) => onChange(e.target.checked)}
-				className="mt-0.5 h-4 w-4 rounded border-gray-300 text-sky-blue focus:ring-blue-400"
+				className="mt-2 h-4 w-4 rounded border-gray-300 text-sky-blue focus:ring-blue-400"
 			/>
 			<label htmlFor="agreement" className="leading-snug">
 				By checking this box, you agree to AccentMe's{' '}
@@ -37,7 +37,7 @@ const AgreementCheckbox: React.FC<AgreementCheckboxProps> = ({
 				>
 					Privacy Policy
 				</a>
-				.
+				<span className='text-lg text-red-700'>*</span>.
 			</label>
 		</div>
 	);

@@ -1,53 +1,17 @@
-# Dialect Classification App
+AccentMe is an open research tool to study and automatically classify regional and social dialects from short speech samples. The project is currently in a data-collection phase: we collect volunteer voice recordings + minimal metadata to build a training dataset for later model experiments.
 
-A monorepo containing a React + TypeScript + Vite frontend and a Python backend
----
+## Why collect volunteer samples?
+Good dialect classifiers require varied, real-world speech across ages, gender expressions, regions, and recording conditions. Volunteer-contributed data helps us:
+- Reduce dataset bias
+- Improve model generalization
+- Evaluate fairness across groups
+All contributions are voluntary and protected by the consent procedure below.
 
-## Getting Started
 
-### Prerequisites
-- **Node.js**
-- **Python**
-- **[uv](https://github.com/astral-sh/uv)** package manager installed globally
-- Any required environment variables set in `.env` files (see below)
+We only use your recording and metadata to train and evaluate dialect classification models. Personal identifying information is not required; provide only what you’re comfortable sharing.
 
----
-
-### Clone the repository
-
-### Set up the frontend
-```bash
-cd frontend
-npm install
-npm run dev
-```
-
-### Set up the backend
-New Terminal
-```bash
-cd backend
-
-# Create and sync the virtual environment from pyproject.toml
-uv sync
-
-# Activate the virtual environment
-source .venv/bin/activate  # Mac/Linux
-.venv\Scripts\activate     # Windows PowerShell
-
-# Run the backend server
-uv run uvicorn server:app --reload
-
-# To perform unit testing
-uv run pytest
-```
-
-### Environment Variables
-```
-cp backend/.env.example backend/.env
-```
-Replace placeholders
-
-## Access the App
-Start both the frontend and backend servers.
-Open the frontend in your browser (default: http://localhost:5173).
-The frontend will communicate with the backend API automatically.
+## How samples will be used.
+- Train and evaluate machine-learning models for dialect classification.
+- Analyze dataset demographics and recording conditions to identify bias.
+- Derived datasets (features, embeddings) may be used for experiments; raw audio is not publicly released without explicit consent.
+- When we publish papers or demos, we will describe dataset statistics, anonymization steps, and ethics review.

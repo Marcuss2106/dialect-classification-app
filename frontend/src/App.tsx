@@ -2,6 +2,7 @@ import './App.css';
 import { useEffect } from 'react';
 import { Outlet, Link } from 'react-router-dom';
 import { getOrCreateSessionId } from './utils/session';
+import Hamburger from './assets/hamburger.svg?react';
 
 const App = () => {
 	useEffect(() => {
@@ -10,8 +11,9 @@ const App = () => {
 	}, []);
 
 	return (
-		<div className="min-h-screen flex flex-col items-center">
-			<nav className="bg-[#FFFFFF] w-[60vw] fixed top-0 z-50 flex items-center justify-center p-4 mt-4 border-[#B7E4C7] border-2 rounded-3xl text-forest shadow-xs">
+		<div className="min-h-screen max-w-screen flex flex-col items-center">
+			{/* Nav bar for medium and larger screens */}
+			<nav className="hidden md:flex bg-[#FFFFFF] w-[60vw] fixed top-0 z-50 items-center justify-center p-4 mt-4 border-[#B7E4C7] border-2 rounded-3xl text-forest shadow-xs">
 				<div className="grow text-left ml-32">
 					<Link to="/">
 						<h1>LOGO</h1>
@@ -44,13 +46,21 @@ const App = () => {
 					</Link>
 				</div>
 			</nav>
+			{/* Nav bar for small screens */}
+			<nav>
+				<div className="md:hidden rounded-full bg-[#FFFFFF] fixed top-4 right-4 z-50 border-[#B7E4C7] text-forest shadow-xs">
+					<button className="p-4 hover:bg-gray-200 active:bg-gray-300 transition">
+						<Hamburger className="h-8 w-8"></Hamburger>
+					</button>
+				</div>
+			</nav>
 
-			<main className="flex-grow">
+			<main className="flex-grow w-full">
 				<Outlet />
 			</main>
 
 			<footer className="flex flex-col items-center bg-forest w-screen p-4 text-left text-off-white text-lg">
-				<div className="px-4 grid grid-cols-1 sm:grid-cols-3 gap-16 text-sm">
+				<div className="px-4 grid grid-cols-2 sm:grid-cols-3 gap-8 sm:gap-16 text-sm">
 					<div className="">
 						<h4 className="text-xl font-semibold">AccentMe</h4>
 						<p>Classify accents.</p>

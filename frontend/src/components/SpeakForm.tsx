@@ -64,13 +64,6 @@ const SpeakForm: React.FC<SpeakFormProps> = ({ recorder }) => {
 						</button>
 					</a>
 				</div>
-				<button
-					type="button"
-					className="bg-white px-12 py-4 border-1 border-gray-200 text-charcoal transition-all rounded-4xl duration-200 shadow-sm ease-in-out
-					hover:border-charcoal text-lg font-medium"
-				>
-					{'>>'} Skip
-				</button>
 				<div className="relative">
 					<div
 						className={`absolute -top-24 bg-blue-600 text-white px-2 py-2 rounded shadow-md text-sm transition-all duration-500 ${

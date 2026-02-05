@@ -16,7 +16,7 @@ const App = () => {
 			<nav className="hidden md:flex bg-[#FFFFFF] w-[60vw] fixed top-0 z-50 items-center justify-center p-4 mt-4 border-[#B7E4C7] border-2 rounded-3xl text-forest shadow-xs">
 				<div className="grow text-left ml-32">
 					<Link to="/">
-						<h1>LOGO</h1>
+						<h1>AccentMe</h1>
 					</Link>
 				</div>
 				<div className="mr-32">
@@ -26,14 +26,6 @@ const App = () => {
               hover:bg-[#95D5B2] hover:text-white"
 						>
 							About
-						</button>
-					</Link>
-					<Link to="/" className="mr-4">
-						<button
-							className="bg-white text-forest px-6 py-2 transition-colors rounded-4xl duration-300 ease-in-out
-              hover:bg-[#95D5B2] hover:text-white"
-						>
-							Research
 						</button>
 					</Link>
 					<Link to="/speak" className="mr-4">
@@ -81,11 +73,6 @@ const App = () => {
 								</a>
 							</li>
 							<li>
-								<a href="#about" className="hover:underline">
-									Research
-								</a>
-							</li>
-							<li>
 								<a href="#try" className="hover:underline">
 									Try It
 								</a>
@@ -116,7 +103,7 @@ const App = () => {
 				</div>
 
 				<div className="text-center text-xs text-gray-400 mt-8">
-					© 2025 AccentMe. All rights reserved.
+					© 2026 AccentMe. All rights reserved.
 				</div>
 			</footer>
 		</div>

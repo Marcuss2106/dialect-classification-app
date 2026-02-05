@@ -15,6 +15,8 @@ const getAudioDuration = (blob: Blob): Promise<number> => {
   });
 };
 
+const API_BASE = process.env.REACT_APP_API_BASE || "http://localhost:8000";
+
 export const useRecorder = () => {
   const [isRecording, setIsRecording] = useState(false);
   const mediaRecorderRef = useRef<MediaRecorder | null>(null);
@@ -63,7 +65,7 @@ export const useRecorder = () => {
 		console.log("Uploading audio...");
 
 		try {
-			const res = await fetch("http://localhost:8000/upload-audio", {
+			const res = await fetch(`${API_BASE}/upload-audio`, {
 			method: "POST",
 			body: formData,
 			});

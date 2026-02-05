@@ -16,6 +16,7 @@ try:
     SUPABASE_URL = os.getenv("SUPABASE_URL")
     SUPABASE_KEY = os.getenv("SUPABASE_KEY")
     SUPABASE_STORAGE_BUCKET = os.getenv("SUPABASE_STORAGE_BUCKET", "recordings")
+    origins = os.getenv("CORS_ORIGINS", "").split(",")
     SUPABASE_AUDIO_METADATA_TABLE = os.getenv(
         "SUPABASE_AUDIO_METADATA_TABLE", "audio_metadata"
     )
@@ -32,7 +33,7 @@ def get_local_upload_dir():
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["https://accentme.netlify.app"],
+    allow_origins=origins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

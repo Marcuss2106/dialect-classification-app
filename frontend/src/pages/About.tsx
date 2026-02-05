@@ -1,4 +1,3 @@
-import React from 'react';
 import UsaFromSpace from '../assets/usa_from_space.jpg';
 
 const About = () => {

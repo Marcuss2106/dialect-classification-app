@@ -1,4 +1,3 @@
-import React from 'react';
 import MicButton from "../components/MicButton";
 import Mic from "../assets/mic.svg?react"
 import Stop from '../assets/stop.svg?react';

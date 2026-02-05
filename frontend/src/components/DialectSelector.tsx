@@ -1,16 +1,6 @@
-import React, { useState } from 'react';
 import dialectData from '../assets/dialects.json';
 
-type Subdialect = {
-	code: string;
-	label: string;
-};
 
-type Dialect = {
-	code: string;
-	label: string;
-	subdialects: Subdialect[];
-};
 
 type DialectSelectorProps = {
 	selectedDialectCode: string;

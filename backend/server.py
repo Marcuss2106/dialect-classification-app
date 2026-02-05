@@ -32,7 +32,7 @@ def get_local_upload_dir():
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173"],
+    allow_origins=["https://accentme.netlify.app"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -130,3 +130,8 @@ def get_filename(file) -> str:
 @app.get("/")
 def root():
     return {"message": "Backend is working!"}
+
+
+@app.get("/healthz")
+def health():
+    return {"status": "ok"}
